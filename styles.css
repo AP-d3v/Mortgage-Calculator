@@ -294,10 +294,9 @@ input[type="text"]:focus + span{
 @media (max-width: 500px) {
    
     .App{
-        margin: 0 auto; 
+        margin: 10px auto; 
         width: 90vw;
         flex-direction: column;
-        height: 1000px;
         border-bottom-left-radius: 200px;
     
 
@@ -305,17 +304,15 @@ input[type="text"]:focus + span{
 
     .calc,#yourResults{
         width: 100%;
-        height: 50%;
         box-sizing: border-box;
         
     
     }
     .calc{
-     height: 50%;
+     min-height: 55%;
     }
     #yourResults{
-        min-height: 50%;
-        height: 50%;
+        min-height: 40%;
         border-radius: 0 0 20px 100px
     }
     button{
@@ -327,5 +324,14 @@ input[type="text"]:focus + span{
     }
     #answer-box{
         border-radius: 10px 10px 10px 90px;
+    }
+    body{
+        margin: 0px;
+    }
+    #app-title{
+        font-size: 1.2rem;
+    }
+    body{
+        height:auto;
     }
     }
