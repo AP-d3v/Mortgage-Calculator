@@ -12,13 +12,14 @@ function handleSubmit(e){
     
     e.preventDefault()
    
-    const mortgageAmount = document.getElementById("mtgAmt").value.trim();
-    const mortgageTerm = document.getElementById("mtgTerm").value.trim();
-    const interestRate = document.getElementById("intRate").value.trim();
+    const mortgageAmount = parseInt(document.getElementById("mtgAmt").value.trim().replace(/,/g, ''),10);
+    const mortgageTerm = parseInt(document.getElementById("mtgTerm").value.trim().replace(/,/g, ''),10);
+    const interestRate = parseInt(document.getElementById("intRate").value.trim().replace(/,/g, ''),10);
     const repayRadio = document.getElementById("repayment");
     const interestRadio = document.getElementById("interest_only");
     const  isFormGood = validateform()
 
+    console.log(mortgageAmount)
 
    if (isFormGood) {
         if(repayRadio.checked){
@@ -48,9 +49,9 @@ function handleSubmit(e){
 
 function validateform (){
 
-    const mortgageAmount = document.getElementById("mtgAmt").value.trim();
-    const mortgageTerm = document.getElementById("mtgTerm").value.trim();
-    const interestRate = document.getElementById("intRate").value.trim();
+    const mortgageAmount = parseInt(document.getElementById("mtgAmt").value.trim().replace(/,/g, ''), 10);
+    const mortgageTerm = parseInt(document.getElementById("mtgTerm").value.trim().replace(/,/g, ''),10);
+    const interestRate = parseInt(document.getElementById("intRate").value.trim().replace(/,/g, ''),10);
     const repayRadio = document.getElementById("repayment");
     const interestRadio = document.getElementById("interest_only");
 
@@ -222,3 +223,19 @@ function resetResultsStyle() {
     document.getElementById("interest_only").addEventListener("change", validateform);
 
 })
+
+function addCommasForInput(e){
+    let numInput = parseFloat(e.target.value.replace(/,/g, ''))
+    if (!isNaN(numInput) && numInput !== "") 
+    e.target.value = numInput.toLocaleString("en-US")
+
+}
+
+
+
+document.addEventListener('DOMContentLoaded', function(){
+    const inputs = ["mtgAmt","mtgTerm", "intRate"]
+    inputs.forEach( input => {
+    document.getElementById(input).addEventListener("input", addCommasForInput)
+});
+});

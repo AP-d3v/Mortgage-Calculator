@@ -124,7 +124,7 @@ input:focus{
     
 }
 button{
-    all: unset; /* Resets all inherited and default styles */
+    all: unset; 
     display: inline-block; /* Required to allow padding/margins */
     cursor: pointer; /* Adds pointer cursor for interaction */
     font-size: 1rem;
